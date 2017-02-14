@@ -1,0 +1,36 @@
+extends layout
+
+block content
+  div.ml_nav.navbar-toggleable-md.navbar-inverse.fixed-top
+    div.container-fluid
+      div.row.justify-content-between
+        div.col-2
+          button.navbar-toggler.navbar-toggler-left(data-toggle="collapse", data-target="#navbarCollapse", aria-controls="navbarCollapse", aria-expanded="false", aria-label="Toggle navigation")
+            img(src="/images/icons/user.png")
+        div.col-2
+          a.navbar-brand(href="#")
+            img(src="/images/icons/msg.png")
+    #navbarCollapse.navbar-collapse.collapse
+      ul.navbar-nav.mr-auto
+        li.nav-item.active
+          a.nav-link(href="#") Home
+  body
+    .card.text-center
+      .card-header
+        ul.nav.nav-pills.card-header-pills(role="tablist")
+          li.nav-item
+            a.nav-link.active(data-toggle="tab", href="#inprogress", role="tab") 我的任务
+          li.nav-item
+            a.nav-link(data-toggle="tab", href="#mine", role="tab") 我的愿望
+      .card-block
+        .tab-content
+          .tab-pane.active(id="inprogress", role="tabpanel")
+            h1.card-title Special title treatment
+          .tab-pane(id="mine", role="tabpanel")
+            h1.card-title Special title Mine!
+    .container
+      div.row
+        div.col
+          H1 World tasks
+    footer
+      p © Company 2017
