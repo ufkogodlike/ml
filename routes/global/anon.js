@@ -7,8 +7,7 @@ var router = express.Router();
 router.get(path.join('/login'),
     function(req, res, next) {
         res.render('login', {
-            message: req.query.msg,
-            ttt: "Hello"
+            message: req.query.msg
         });
     }
 );
@@ -16,7 +15,7 @@ router.get(path.join('/login'),
 router.post(path.join('/login'),
     passport.authenticate('local', { failureRedirect: '/login?msg=Error' }),
     function(req, res) {
-        res.redirect('/users/1111');
+        res.redirect('/index/main');
     }
 );
 

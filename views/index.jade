@@ -1,9 +1,23 @@
-extends layout
+extends layout_authed
 
 block content
-  h1= title
-  p Welcome to #{title}
-
-  h1 'Jumbotron heading' #{ttt}
-  a(href="#", class="ui-btn") Anchor
-  button(class="ui-btn") Button
+  .card.text-center
+    .card-header
+      ul.nav.nav-pills.card-header-pills(role="tablist")
+        li.nav-item
+          a.nav-link.active(data-toggle="tab", href="#inprogress", role="tab") 我的任务
+        li.nav-item
+          a.nav-link(data-toggle="tab", href="#mine", role="tab") 我的愿望
+    .card-block
+      .tab-content
+        .tab-pane.active(id="inprogress", role="tabpanel")
+          each item in wishes
+            h1.card-title #{item.summary}
+        .tab-pane(id="mine", role="tabpanel")
+          h1.card-title Special title Mine!
+  .container
+    div.row
+      div.col
+        H1 World tasks
+  footer
+    p #{currentUser.nickname}

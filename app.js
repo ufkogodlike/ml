@@ -11,6 +11,7 @@ var Strategy = require('passport-local').Strategy;
 
 var anon = require('./routes/global/anon');
 var authorization = require('./routes/global/authorization');
+var index = require('./routes/index');
 var users = require('./routes/users');
 
 //################# Passport settings start #################
@@ -27,7 +28,6 @@ passport.serializeUser(function(user, cb) {
 });
 
 passport.deserializeUser(function(user, cb) {
-  console.log("<<<<<<<<<<<" + user);
   cb(null, user);
 });
 
@@ -51,6 +51,7 @@ app.use(passport.session());
 
 app.use('/', anon);
 app.use('/', authorization);
+app.use('/index', index);
 app.use('/users', users);
 
 
